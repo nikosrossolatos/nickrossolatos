@@ -3,6 +3,7 @@ var runSequence = require('run-sequence');
 var changed = require('gulp-changed');
 var plumber = require('gulp-plumber');
 var to5 = require('gulp-babel');
+var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var paths = require('../paths');
 var compilerOptions = require('../babel-options');
@@ -36,7 +37,15 @@ gulp.task('build-css', function () {
     .pipe(changed(paths.output, {extension: '.css'}))
     .pipe(gulp.dest(paths.output));
 });
-
+gulp.task('build-sass', function () {
+  return gulp.src(paths.scss)
+    .pipe(plumber())
+    .pipe(changed(paths.output, {extension: '.scss'}))
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(paths.output));
+});
 // this task calls the clean task (located
 // in ./clean.js), then runs the build-system
 // and build-html tasks in parallel
@@ -44,7 +53,7 @@ gulp.task('build-css', function () {
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-system', 'build-html', 'build-css'],
+    ['build-system', 'build-html', 'build-css','build-sass'],
     callback
   );
 });

@@ -1,10 +1,20 @@
 <template>
   <require from="nav-bar.html"></require>
-  <require from="bootstrap/css/bootstrap.css"></require>
+	
+	<header class="flexbox flexbox--row flexbox--align-center background__color--primary-red" show.bind="isAuthenticated">
+		<div class="padding__square brand background__color--deep-red">
+			<object type="image/svg+xml" data="img/logo.svg"></object>
+		</div>
+		<div class="flexbox__fluid text-right padding__square">
+			autopilot
+		</div>
+	</header><!-- /header -->
 
-  <nav-bar router.bind="router"></nav-bar>
+	<div class="flexbox flexbox--columns flexbox__fluid">
+		<nav-bar class="left-nav" router.bind="router" show.bind="isAuthenticated"></nav-bar>
+		<div class="flexbox__fluid flexbox">
+    	<router-view class="flexbox__fluid flexbox"></router-view>
+  	</div>
+	</div>
 
-  <div class="page-host">
-    <router-view></router-view>
-  </div>
 </template>

@@ -1,0 +1,50 @@
+<template>
+
+<require from="./converters/time"></require>
+
+	<section class="chat flexbox flexbox__fluid flexbox--row">
+		<section class="chat__list">
+			<div class="chat__list__header clearfix padding__square">
+				<p class="chat__list__header__item">
+					${conversations.length} Chats
+				</p>
+				<div class="chat__list__header__item filter color--primary-red text-right">
+					<select name="">
+						<option value="">Unread</option>
+						<option value="">Latest</option>
+					</select>
+					<i class="fa fa-angle-down"></i>
+				</div>
+			</div>
+			<ul>
+				<li repeat.for="conversation of conversations" click.delegate="$parent.selectConversation(conversation)" class="padding__square chat__list__item ${$parent.conversation == conversation ? 'active' : ''}" class.bind="conversation.unread? 'chat__list__item--unread' : ''">
+					<h3 class="font--bold no--margin" if.bind="conversation.persona_id.name">${conversation.persona_id.name} ${conversation.persona_id.surname}</h3>
+					<h3 class="font--bold no--margin" if.bind="!conversation.persona_id.name">Anon</h3>
+					<p class="chat__message__time">${conversation.last_active | time}</p>
+				</li>
+			</ul>
+		</section>
+		<section class="flexbox flexbox--column flexbox__fluid">
+			<div class="padding__square chat__window__header background__color--deep-red">
+				<h3 class="no--margin" if.bind="conversation.persona_id.name">${conversation.persona_id.name} ${conversation.persona_id.surname}</h3>
+				<h3 class="no--margin" if.bind="!conversation.persona_id.name">Anonymous</h3>
+				<p>no@email.found</p>
+			</div>
+			<div class="flexbox__fluid chat__window">
+				<ul>
+					<li class="chat__message" repeat.for="message of conversation.messages">
+						<div class="padding__square border-radius " class.bind="message.admin?'chat__message--bot':'chat__message--user'">
+							<p>${message.content}</p>
+						</div>
+						<p class="info">${message.date_sent | time} </p>
+					</li>
+				</ul>
+			</div>
+			<div class="padding__square chat__controls">
+				<form submit.delegate="sendMessage()">
+					<input type="text" name="" value.bind="reply" placeholder="Type a message" class="form-control chat__controls__input">
+				</form>
+			</div>
+		</section>
+	</section>
+</template>

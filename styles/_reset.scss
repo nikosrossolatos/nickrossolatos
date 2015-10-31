@@ -1,0 +1,21 @@
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+object{
+	display:inherit;
+}
+
+select{
+	border:none;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance:none;
+}
+select::-ms-expand {
+    display: none;
+}
+p{
+	margin-bottom: 0;
+}

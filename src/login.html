@@ -1,0 +1,29 @@
+<template>
+<div class="container">
+  <div class="row">
+    <div class="center-form panel" style="width:50%;margin-top:10%;margin:10% auto;">
+      <div class="panel-body">
+        <h2 class="text-center color--black">Log in</h2>
+        <form method="post"  name="loginForm">
+          <div class="form-group has-feedback">
+            <input class="form-control input-lg" type="text" name="username" value.bind="username" placeholder="Username" required autofocus>
+            <span class="ion-at form-control-feedback"></span>
+          </div>
+
+          <div class="form-group has-feedback">
+            <input class="form-control input-lg" type="password" name="password" value.bind="password" placeholder="Password" required>
+            <span class="ion-key form-control-feedback"></span>
+          </div>
+
+          <button type="submit" click.delegate="login()" class="btn btn-lg  btn-block background__color--deep-red">Log in</button>
+
+          <br/>
+<!--           <p class="text-center">
+            <a href="#">Forgot your password?</a>
+          </p> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</template>

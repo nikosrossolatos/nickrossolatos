@@ -1,0 +1,17 @@
+$deepRed : #b72930;
+$primaryRed: #d72327;
+$black : #333;
+$green : #1abc9c;
+.background__color--deep-red{
+	background-color: $deepRed
+}
+.background__color--primary-red{
+	background-color: $primaryRed;
+}
+.color--primary-red{
+	color:$primaryRed;
+}
+
+.color--black{
+	color:$black;
+}

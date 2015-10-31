@@ -1,10 +1,13 @@
 import 'bootstrap';
+import config from './auth/config';
 
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .developmentLogging();
-
+    .developmentLogging()
+    .plugin('aurelia-auth', (baseConfig)=>{
+         baseConfig.configure(config);
+    });
   //Uncomment the line below to enable animation.
   //aurelia.use.plugin('aurelia-animator-css');
 

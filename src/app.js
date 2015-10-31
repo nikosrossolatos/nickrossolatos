@@ -1,12 +1,26 @@
+import {inject} from 'aurelia-framework';
+import {AuthorizeStep} from 'aurelia-auth';
+import {AuthService} from 'aurelia-auth';
+
+@inject(AuthService)
 export class App {
   configureRouter(config, router) {
-    config.title = 'Aurelia';
+    config.title = 'Administration';
+    config.addPipelineStep('authorize', AuthorizeStep);
     config.map([
-      { route: ['', 'welcome'], name: 'welcome',      moduleId: 'welcome',      nav: true, title: 'Welcome' },
-      { route: 'users',         name: 'users',        moduleId: 'users',        nav: true, title: 'Github Users' },
-      { route: 'child-router',  name: 'child-router', moduleId: 'child-router', nav: true, title: 'Child Router' }
+    	{ route: ['', 'dashboard'], name: 'dashboard',      moduleId: 'dashboard',      nav: true, 	auth:true,title: 'Dashboard',		settings:{svgIcon:'thunder'} },
+    	{ route: 'messages',        name: 'messages',       moduleId: 'messages',       nav: true, 	auth:true,title: 'Messages',		settings:{svgIcon:'messages'} },
+    	{ route: 'settings',   			name: 'settings',  			moduleId: 'settings',  			nav: true, 	auth:true,title: 'Settings',		settings:{svgIcon:'gear'} },
+    	{ route: 'login',        		name:'login', 					moduleId: './login',       	nav: false, title:'Login' },
+	    { route: 'logout',        	name:'logout' , 				moduleId: './logout',       nav: false, title:'Logout' },
     ]);
 
     this.router = router;
+  }
+  constructor(auth){
+    this.auth = auth;
+  }
+  get isAuthenticated(){
+    return this.auth.isAuthenticated();
   }
 }

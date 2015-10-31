@@ -1,0 +1,73 @@
+@import '_bootstrap.min';
+@import '_reset';
+@import '_colors';
+@import '_flexbox';
+@import '_left-nav';
+@import '_chat';
+
+$padding-box : 1em;
+$border-radius : 6px;
+html,body{
+  width:100%;
+  height:100%;
+}
+body {
+  margin: 0;
+  color:#fff;
+}
+.fullscreen{
+  width:100%;
+  height:100%;
+}
+.fullscreen__image{
+  background-image: linear-gradient(rgba(215, 35, 39, 0.7), rgba(215, 35, 39, 0.7)), url("/img/background.jpg");
+  background-size:cover;
+}
+
+/*
+**   Splash screen style
+ */
+.splash {
+  text-align: center;
+  margin: 10% 0 0 0;
+  box-sizing: border-box;
+}
+
+.splash .message {
+  font-size: 72px;
+  line-height: 72px;
+  text-transform: uppercase;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.splash .fa-spinner {
+  text-align: center;
+  display: inline-block;
+  font-size: 72px;
+  margin-top: 50px;
+}
+
+/*
+**  Main styling
+*/
+.inline-block{
+  display:inline-block;
+}
+.padding__square{
+  padding:$padding-box;
+}
+
+.font--bold{
+  font-weight: bold;
+}
+.no--margin{
+  margin:0;
+}
+.info{
+  color:#a5a5a5;
+  font-size:14px;
+}
+
+.border-radius{
+  border-radius:$border-radius;
+}

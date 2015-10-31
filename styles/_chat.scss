@@ -1,0 +1,65 @@
+.chat{
+
+}
+.chat__list{
+	width:20%;
+	background-color: rgba(240,240,240,.85);
+	color:#333;
+}
+.chat__list__header{
+	background-color: #fff;
+}
+.chat__list__header__item{
+	float:left;
+	width:50%;
+}
+.chat__list__item{
+	color:#959595;
+	cursor:pointer;
+	border-bottom:1px solid #C7C7C7;
+}
+.chat__list__item.active{
+	border-left:5px solid $green;
+}
+.chat__list__item--unread{
+	color:#5f5f5f;
+}
+.chat__window{
+	background-color: #e9eaed;
+	color:#555555;
+	font-weight:300;
+	overflow:auto;
+	height:0;
+}
+.chat__message{
+	font-size:17px;
+	padding:1em 1em 0;
+}
+
+.chat__message__time{
+	font-size:14px;
+	margin-top:5px;
+}
+.chat__message--bot{
+	background-color: #FEDBDB;
+	border:1px solid #F3B7B7;
+	background-image: -moz-linear-gradient(center bottom , #FBCFCF, #FEE7E7);
+	background-image: -webkit-linear-gradient(bottom, #FBCFCF, #FEE7E7);
+}
+.chat__message--user{
+	background-color: #fff;
+	border:1px solid #ccc;
+}
+.chat__controls{
+	border-top:1px solid #ccc;
+	background-color: #FFF;
+}
+
+.chat__controls__input{
+	padding: 18px 12px;
+	border:none;
+	box-shadow:none;
+}
+.chat__controls__input:focus{
+	box-shadow:none;
+}

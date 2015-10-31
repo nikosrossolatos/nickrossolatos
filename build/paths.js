@@ -8,6 +8,7 @@ module.exports = {
   source: appRoot + '**/*.js',
   html: appRoot + '**/*.html',
   css: appRoot + '**/*.css',
+  scss : 'styles/**/*.scss',
   style: 'styles/**/*.css',
   output: outputRoot,
   doc:'./doc',
