@@ -1,12 +1,12 @@
 import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import {HttpClient,json} from 'aurelia-fetch-client';
 import paths from '../config/defaults'
 import 'fetch';
 
-@inject(HttpClient)
+@inject(HttpClient,json)
 export class Conversations{
 
-  constructor(http){
+  constructor(http,json){
     http.configure(config => {
       config
         .useStandardConfiguration()
@@ -19,8 +19,16 @@ export class Conversations{
   	return this.http.fetch('conversations')
       .then(response => response.json())
   }
+  post(conversation,message){
+    var request = {
+      persona:conversation.persona,
+      message
+    }
+    return this.http.fetch('conversations/'+conversation._id,{method:'post',body:json(request)})
+      .then(response => response.json())
+  }
   setUnread(id,state){
-    return this.http.fetch('conversations/'+id,{method:'put',body:{unread:state}})
+    return this.http.fetch('conversations/'+id,{method:'put',body:json({unread:state})})
       .then(response => response.json())
   }
 }

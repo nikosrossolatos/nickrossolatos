@@ -1,10 +1,10 @@
-import paths from '../config/defaults'
+import paths from '../config/defaults';
+
 
 var config = {
-	baseUrl: paths.baseUr+'/auth',
+	baseUrl: paths.baseUrl+'/auth',
 	loginUrl : 'login',
 	loginRedirect: '#/dashboard'
 	}
-
 
 export default config;

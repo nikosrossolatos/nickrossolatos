@@ -7,12 +7,10 @@ import {inject} from 'aurelia-framework';
 export class Login{
     constructor(auth){
         this.auth = auth;
+        this.heading = 'Login';
+        this.username='';
+        this.password='';
     };
-
-    heading = 'Login';
-
-    username='';
-    password='';
     APIAuthenticate = {
         UserName:null,
         Password:null,
