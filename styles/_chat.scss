@@ -54,8 +54,10 @@
 }
 
 .chat__controls__input{
-	padding: 18px 12px;
+	padding: 8px 12px;
 	border:none;
+	/* Fixing Box sizing problem with inputs hidding text */
+	height:100%;
 	box-shadow:none;
 }
 .chat__controls__input:focus{

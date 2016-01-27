@@ -37,10 +37,10 @@ System.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.1.0.2",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.1.0.4",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0-beta.1.0.5",
-    "babel": "npm:babel-core@5.8.25",
-    "babel-runtime": "npm:babel-runtime@5.8.25",
+    "babel": "npm:babel-core@5.8.35",
+    "babel-runtime": "npm:babel-runtime@5.8.35",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
-    "core-js": "npm:core-js@0.9.18",
+    "core-js": "npm:core-js@1.2.6",
     "fetch": "github:github/fetch@0.9.0",
     "font-awesome": "npm:font-awesome@4.4.0",
     "moment": "npm:moment@2.10.6",
@@ -264,7 +264,7 @@ System.config({
       "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.1.0.1",
       "core-js": "npm:core-js@1.2.6"
     },
-    "npm:babel-runtime@5.8.25": {
+    "npm:babel-runtime@5.8.35": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:browserify-aes@1.0.6": {
@@ -330,11 +330,6 @@ System.config({
       "string_decoder": "github:jspm/nodelibs-string_decoder@0.1.0"
     },
     "npm:constants-browserify@0.0.1": {
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
-    },
-    "npm:core-js@0.9.18": {
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
     "npm:core-js@1.2.6": {

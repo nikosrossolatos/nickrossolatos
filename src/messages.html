@@ -30,7 +30,7 @@
 				<h3 class="no--margin" if.bind="!conversation.persona.name">Anonymous</h3>
 				<p>no@email.found</p>
 			</div>
-			<div class="flexbox__fluid chat__window flexbox--overflow">
+			<div class="flexbox__fluid chat__window flexbox--overflow" id="js-chat">
 				<ul>
 					<li class="chat__message" repeat.for="message of conversation.messages">
 						<div class="padding__square border-radius " class.bind="message.admin?'chat__message--bot':'chat__message--user'">
