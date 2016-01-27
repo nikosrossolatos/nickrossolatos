@@ -22,10 +22,11 @@ export class Messages{
 			conversation.last_active = data.last_active;
 			conversation.messages = data.messages;
 			var lastSent = data.messages[data.messages.length-1]
-			//notify me when there is a response but not from admin
+			//Notification : notify me when there is a response but not from admin
 			if(!lastSent.admin){
 				this.notify.spawn(conversation.persona.name + ' sent',lastSent.content.substring(0,60))
 			}
+
 			if(isAtBottom(this.chatWindow)){
 				this.scrollChatBottom()
 			}

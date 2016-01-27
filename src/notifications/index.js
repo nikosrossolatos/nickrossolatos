@@ -24,7 +24,7 @@ export class Notify{
     }
     var options = {
         body,
-        icon
+        icon :'/img/notify-icon.png'
     }
     var n = new Notification(title,options);
     setTimeout(()=>{
