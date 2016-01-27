@@ -7,6 +7,10 @@
 		</div>
 		<div class="flexbox__fluid text-right padding__square">
 			autopilot
+			<select name="" change.delegate="autopilotChanged($event)" value.bind="autopilot">
+				<option model.bind="true" value="true">enabled</option>
+				<option model.bind="false" value="false">disabled</option>
+			</select>
 		</div>
 	</header><!-- /header -->
 

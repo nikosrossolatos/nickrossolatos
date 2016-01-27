@@ -2,8 +2,9 @@ import {inject} from 'aurelia-framework';
 import {AuthorizeStep} from 'aurelia-auth';
 import {AuthService} from 'aurelia-auth';
 import {Notify} from './notifications/index';
+import {Settings} from './Services/settings'
 
-@inject(AuthService,Notify)
+@inject(AuthService,Notify,Settings)
 export class App {
   configureRouter(config, router) {
     config.title = 'Administration';
@@ -18,11 +19,18 @@ export class App {
 
     this.router = router;
   }
-  constructor(auth,notify){
+  constructor(auth,notify,settings){
     this.auth = auth;
     this.notify = notify;
+    this.settings = settings;
   }
   attached(){
+    this.autopilot = false;
+    this.settings.getAll()
+                 .then(response=>this.autopilot = response.autopilot)
+  }
+  autopilotChanged(event){
+    this.settings.setAutopilot(this.autopilot);
   }
   get isAuthenticated(){
     return this.auth.isAuthenticated();
