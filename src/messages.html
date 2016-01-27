@@ -1,6 +1,7 @@
 <template>
 
 <require from="./converters/time"></require>
+<require from="./converters/sort"></require>
 
 	<section class="chat flexbox flexbox__fluid flexbox--row">
 		<section class="chat__list">
@@ -17,7 +18,7 @@
 				</div>
 			</div>
 			<ul>
-				<li repeat.for="conversation of conversations" click.delegate="$parent.selectConversation(conversation)" class="padding__square chat__list__item ${$parent.conversation == conversation ? 'active' : ''}" class.bind="conversation.unread? 'chat__list__item--unread' : ''">
+				<li repeat.for="conversation of conversations | sort & signal:'update-sort'" click.delegate="$parent.selectConversation(conversation)" class="padding__square chat__list__item ${$parent.conversation == conversation ? 'active' : ''}" class.bind="conversation.unread? 'chat__list__item--unread' : ''">
 					<h3 class="font--bold no--margin" if.bind="conversation.persona.name">${conversation.persona.name} ${conversation.persona.surname}</h3>
 					<h3 class="font--bold no--margin" if.bind="!conversation.persona.name">Anon</h3>
 					<p class="chat__message__time">${conversation.last_active | time & signal:'update-time'}</p>

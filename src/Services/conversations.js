@@ -21,7 +21,6 @@ export class Conversations{
   }
   post(conversation,message){
     var request = {
-      persona:conversation.persona,
       message
     }
     return this.http.fetch('conversations/'+conversation._id,{method:'post',body:json(request)})

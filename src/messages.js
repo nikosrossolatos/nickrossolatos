@@ -11,6 +11,7 @@ export class Messages{
 		this.Conversations = Conversations;
 		//For livestamp reloading
 		setInterval(()=>signaler.signal('update-time'),30000)
+		this.signaler = signaler;
 		this.room = '';
 		this.notify = notify;
 	}
@@ -27,6 +28,8 @@ export class Messages{
 			}
 			else{
 				conversation.last_active = data.last_active;
+				//update sort table
+				this.signaler.signal('update-sort')
 				conversation.messages = data.messages;
 				if(isAtBottom(this.chatWindow)){
 					this.scrollChatBottom()
@@ -55,7 +58,7 @@ export class Messages{
 			socket.unsubscribe(this.room);
 		}
 		this.room = this.conversation.persona;
-		socket.subscribe(this.room);
+		socket.subscribe(this.room._id);
 		this.scrollChatBottom();
 		if(!conversation.unread){
 			return;
@@ -64,6 +67,7 @@ export class Messages{
 										 .then(response=>this.conversation.unread = false);
 	}
 	sendMessage(){
+		console.log(this.conversation)
 		this.Conversations.post(this.conversation,this.reply)
 											.then(response=>{
 												this.reply = '';

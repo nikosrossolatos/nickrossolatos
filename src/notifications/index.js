@@ -1,5 +1,7 @@
 export class Notify{
   constructor(){
+
+    this.delayNotification = 4000;
     if (!("Notification" in window)) {
       console.info("This browser does not support desktop notification");
     }
@@ -29,6 +31,6 @@ export class Notify{
     var n = new Notification(title,options);
     setTimeout(()=>{
       n.close();
-    },3000)
+    },this.delayNotification)
   }
 }
