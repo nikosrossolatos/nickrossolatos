@@ -19,19 +19,27 @@ export class Messages{
 		socket.subscribe('dashboard');
 		socket.on('update conversation',(data)=>{
 			var conversation = this.conversations.findById(data._id);
-			conversation.last_active = data.last_active;
-			conversation.messages = data.messages;
+
+			//TODO: Handle new conversations differently
+			if(!conversation){
+				this.conversations.unshift(data);
+				this.notify.spawn('New user appeared!');
+			}
+			else{
+				conversation.last_active = data.last_active;
+				conversation.messages = data.messages;
+				if(isAtBottom(this.chatWindow)){
+					this.scrollChatBottom()
+				}
+				else{
+					conversation.unread = true;
+				}
+			}
+			
 			var lastSent = data.messages[data.messages.length-1]
 			//Notification : notify me when there is a response but not from admin
 			if(!lastSent.admin){
 				this.notify.spawn(conversation.persona.name + ' sent',lastSent.content.substring(0,60))
-			}
-
-			if(isAtBottom(this.chatWindow)){
-				this.scrollChatBottom()
-			}
-			else{
-				conversation.unread = true;
 			}
 		});
 		function isAtBottom(element){
