@@ -25,7 +25,7 @@
 	-ms-flex-align:center;
 	align-items:center;
 }
-.flexbox--overflow{
-	height:0;
+.flexbox--overflow{;
+	min-height:0;
 	overflow:auto;
 }

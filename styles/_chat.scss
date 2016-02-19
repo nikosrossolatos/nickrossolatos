@@ -29,6 +29,9 @@
 	color:#555555;
 	font-weight:300;
 }
+.chat__window__header{
+	flex:none;
+}
 .chat__message{
 	font-size:17px;
 	padding:1em 1em 0;
@@ -51,6 +54,7 @@
 .chat__controls{
 	border-top:1px solid #ccc;
 	background-color: #FFF;
+	flex:none;
 }
 
 .chat__controls__input{
